@@ -1,5 +1,5 @@
 import { component$, useStyles$, Slot, useStore, useStylesScoped$ } from "@builder.io/qwik";
-//import styles from "./dropdown.scss?inline";
+import styles from "./dropdown.scss?inline";
 
 interface DropdownProps {
   buttonClass?: string;
@@ -11,7 +11,7 @@ interface DropdownStore {
 }
 
 export const Dropdown = component$((props: DropdownProps) => {
-  //useStyles$(styles);
+  useStyles$(styles);
   useStylesScoped$(`
         ul.show {
             position: absolute; 
