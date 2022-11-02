@@ -1,58 +1,57 @@
 import { component$, useStyles$, Slot } from "@builder.io/qwik";
 import styles from "./textfield.scss?inline";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { Dropdown } from "../dropdown/dropdown";
 import { DropdownItem } from "../dropdown/dropdown-item";
 import { FontAwesomeIcon } from "../fa-icon/fa-icon";
 
 interface SuperHeaderProps {
-    blabla?:string;
+  blabla?: string;
 }
 
 interface MenuItem {
-    name: string;
-    url: string;
-    isSelected: boolean;
+  label: string;
+  url: string;
 }
 
 interface SuperHeaderMenuProps {
-    hubIcon: boolean;
-    items: MenuItem[];
-    title?: string;
+  hubIcon: boolean;
+  items: MenuItem[];
+  title?: string;
 }
-
-interface SuperHeaderMenuBoutonProps {
-    hubIcon: boolean;
-    title?: string;
-}
-
-export const SuperHeaderMenuBouton = component$((props: SuperHeaderMenuBoutonProps) => {
-    return (
-        <>{ props.hubIcon ?
-            <FontAwesomeIcon icon="th" class="bold-text font-size-28"></FontAwesomeIcon> :
-            <>
-                {props.title}<FontAwesomeIcon icon="chevron-down" class="bold-text font-size-18 ml-3"></FontAwesomeIcon>
-            </>
-        }</>
-    )
-});
 
 export const SuperHeaderMenu = component$((props: SuperHeaderMenuProps) => {
-    return(
-        <Dropdown menuClass="border-none font-size-12 mt-0 text-dark">
-            <SuperHeaderMenuBouton hubIcon={props.hubIcon} title={props.title} q:slot="button"></SuperHeaderMenuBouton>
-            {   props.items.map(item => <DropdownItem q:slot="item" href={item.url}>{item.name}</DropdownItem>) }
-        </Dropdown>
-    );
+  return (
+    <Dropdown selected={props.items[0].url} label={props.hubIcon ? '' : props.title} icon={props.hubIcon ? 'th' : undefined}>
+      {props.items.map((item) => (
+        <DropdownItem value={item.url} /*href={item.url}*/>{item.label}</DropdownItem>
+      ))}
+    </Dropdown>
+  );
 });
 
 export const SuperHeader = component$((props: SuperHeaderProps) => {
-    const menu1: MenuItem[] = [
-        {name:"google", url: "http://google.com", isSelected: false},
-        {name:"bing", url: "http://bing.com", isSelected: false},
-    ];
-    return (<>
-            <SuperHeaderMenu items={menu1} hubIcon={false} title="menu1"></SuperHeaderMenu>
-            <SuperHeaderMenu items={menu1} hubIcon={false} title="menu2"></SuperHeaderMenu>
-    </>);
+  const menu1: MenuItem[] = [
+    { label: "A propos d'Amundi", url: "https://about.amundi.com/" },
+    { label: "Amundi Research Center", url: "https://research-center.amundi.com/" },
+    { label: "Amundi Global Distributor", url: "https://www.amundi.com/globaldistributor" },
+  ];
+  const menu2: MenuItem[] = [{ label: "Document library", url: "http://preprod-amundi.minotore.com/fra/fr/professionnels/ressources/document-library" }];
+  const menu3: MenuItem[] = [
+    { label: "France", url: "https://preprod-amundi.minotore.com/fra/fr/professionnels" },
+    { label: "Allemagne", url: "https://preprod-amundi.minotore.com/aut/de/profesionellen" },
+  ];
+  const menu4: MenuItem[] = [
+    { label: "Investisseurs institutionnels", url: "https://preprod-amundi.minotore.com/fra/fr/particuliers" },
+    { label: "Investisseurs particuliers", url: "http://preprod-amundi.minotore.com/fra/fr/intermediary" },
+    { label: "Conseillers financiers", url: "http://preprod-amundi.minotore.com/fra/fr/professionnels" },
+  ];
+  return (
+    <>
+      <SuperHeaderMenu items={menu1} hubIcon={true}></SuperHeaderMenu>
+      <SuperHeaderMenu items={menu2} hubIcon={false} title="Ressources"></SuperHeaderMenu>
+      <SuperHeaderMenu items={menu3} hubIcon={false}></SuperHeaderMenu>
+      <SuperHeaderMenu items={menu4} hubIcon={false}></SuperHeaderMenu>
+    </>
+  );
 });

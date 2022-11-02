@@ -10,11 +10,23 @@ import { TextField } from '~/components/textfield/textfield';
 export default component$(() => {
   return (
     <div>
-      <Dropdown>
-        <span q:slot="button">Dropdown</span>
-        <DropdownItem q:slot="item">Item1</DropdownItem>
-        <DropdownItem q:slot="item">Item2</DropdownItem>
-      </Dropdown>
+      <section>
+        <Dropdown selected="rarely">
+          <DropdownItem value="rarely">Rarely</DropdownItem>
+          <DropdownItem value="sometimes">Sometimes</DropdownItem>
+        </Dropdown>
+      </section>
+
+      <section>
+        <Dropdown selected="sometimes" split>
+          <DropdownItem value="rarely">Rarely</DropdownItem>
+          <DropdownItem value="sometimes">Sometimes</DropdownItem>
+        </Dropdown>
+      </section>
+
+      <section>
+        <SuperHeader></SuperHeader>
+      </section>
 
       <TextField label="Email address" help="We'll never share your email with anyone else."></TextField>
       
