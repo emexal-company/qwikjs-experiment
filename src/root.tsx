@@ -16,7 +16,7 @@ export default component$(() => {
     <QwikCity>
       <head>
         <meta charSet="utf-8" />
-        <QwikPartytown forward={["dataLayer.push"]} />;
+        <QwikPartytown forward={["dataLayer.push"]} />
         <RouterHead />
       </head>
       <body lang="en">

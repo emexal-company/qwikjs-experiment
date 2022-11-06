@@ -9,10 +9,9 @@ interface DropdownItemProps {
 export const DropdownItem = component$((props: DropdownItemProps) => {
   const dropdownStore = useContext<DropdownStore>(DropdownContext);
   const isActive = dropdownStore.selected == `${props.value}`;
-  const itemsRef = useRef();
 
   return (
-    <li data-value={props.value} ref={itemsRef}
+    <li data-value={props.value}
       onClick$={() => {
         if(dropdownStore.onItemSelected$) {
           dropdownStore.onItemSelected$(props.value);

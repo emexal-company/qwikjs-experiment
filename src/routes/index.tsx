@@ -1,15 +1,22 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { Link } from '@builder.io/qwik-city';
-import { Button } from '~/components/button/button';
-import { Dropdown } from '~/components/dropdown/dropdown';
-import { DropdownItem } from '~/components/dropdown/dropdown-item';
-import { SuperHeader } from '~/components/superheader/superheader';
-import { TextField } from '~/components/textfield/textfield';
+import { component$ } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
+import { Button } from "~/components/button/button";
+import { Container } from "~/components/container/container";
+import { Dropdown } from "~/components/dropdown/dropdown";
+import { DropdownItem } from "~/components/dropdown/dropdown-item";
+import { SuperHeader } from "~/components/superheader/superheader";
+import { TabItem } from "~/components/tabs/tabitem";
+import { TabList } from "~/components/tabs/tablist";
+import { TabPanel } from "~/components/tabs/tabpanel";
+import { TabPanels } from "~/components/tabs/tabpanels";
+import { Tabs } from "~/components/tabs/tabs";
+import { TextField } from "~/components/textfield/textfield";
 
 export default component$(() => {
   return (
     <div>
+      <Container></Container>
       <section>
         <Dropdown selected="rarely">
           <DropdownItem value="rarely">Rarely</DropdownItem>
@@ -26,33 +33,67 @@ export default component$(() => {
 
       <section>
         <SuperHeader></SuperHeader>
+        <Tabs selected="2">
+          <TabList>
+            <TabItem value="1">Tab1</TabItem>
+            <TabItem value="2">Tab2</TabItem>
+          </TabList>
+          <TabPanels>
+            <TabPanel value="1">Tab1 content</TabPanel>
+            <TabPanel value="2">Tab2 content</TabPanel>
+          </TabPanels>
+        </Tabs>
       </section>
 
       <TextField label="Email address" help="We'll never share your email with anyone else."></TextField>
-      
+
       <h1>Link to google</h1>
-      <Button variant="danger" size="small" href="https://google.com" class="blabla">Google</Button>
-      
+      <Button variant="danger" size="small" href="https://google.com" class="blabla">
+        Google
+      </Button>
+
       <h1>Small</h1>
-      <Button variant="primary" size="small">Primary button</Button>
-      <Button variant="secondary" size="small">Secondary button</Button>
-      <Button variant="primary" outline size="small">Primary outline button</Button>
-      <Button variant="secondary" outline size="small">Secondary outline button</Button>
-      <Button variant="primary" size="small" disabled>Disabled</Button>    
-      <br/>
+      <Button variant="primary" size="small">
+        Primary button
+      </Button>
+      <Button variant="secondary" size="small">
+        Secondary button
+      </Button>
+      <Button variant="primary" outline size="small">
+        Primary outline button
+      </Button>
+      <Button variant="secondary" outline size="small">
+        Secondary outline button
+      </Button>
+      <Button variant="primary" size="small" disabled>
+        Disabled
+      </Button>
+      <br />
 
       <h1>Medium</h1>
       <Button variant="primary">Primary button</Button>
       <Button variant="secondary">Secondary button</Button>
-      <Button variant="primary" outline>Primary outline button</Button>
-      <Button variant="secondary" outline>Secondary outline button</Button>
-      <br/>
+      <Button variant="primary" outline>
+        Primary outline button
+      </Button>
+      <Button variant="secondary" outline>
+        Secondary outline button
+      </Button>
+      <br />
 
       <h1>Large</h1>
-      <Button variant="primary" size="large">Primary button</Button>
-      <Button variant="secondary" size="large">Secondary button</Button>
-      <Button variant="primary" outline size="large">Primary outline button</Button>
-      <Button variant="secondary" outline size="large">Secondary outline button</Button>     
+      <Button variant="primary" size="large">
+        Primary button
+      </Button>
+      <Button variant="secondary" size="large">
+        Secondary button
+      </Button>
+      <Button variant="primary" outline size="large">
+        Primary outline button
+      </Button>
+      <Button variant="secondary" outline size="large">
+        Secondary outline button
+      </Button>
 
       <h1>
         Welcome to Qwik <span class="lightning">⚡️</span>
@@ -137,10 +178,7 @@ export default component$(() => {
             <code>npm run qwik add static-node</code>
           </td>
           <td>
-            <a
-              href="https://qwik.builder.io/qwikcity/static-site-generation/overview/"
-              target="_blank"
-            >
+            <a href="https://qwik.builder.io/qwikcity/static-site-generation/overview/" target="_blank">
               Static Site Generation (SSG)
             </a>
           </td>
@@ -178,5 +216,5 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
+  title: "Welcome to Qwik",
 };
