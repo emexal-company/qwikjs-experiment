@@ -4,7 +4,7 @@ import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { join, resolve } from "path";
 import { partytownVite } from "@builder.io/partytown/utils";
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig(() => {
   return {
@@ -14,16 +14,21 @@ export default defineConfig(() => {
       tsconfigPaths(),
       partytownVite({ dest: join(__dirname, "public", "~partytown") }),
       viteStaticCopy({
-        targets: [
-          { src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*', dest: 'webfonts'
-          }
-        ]
-      })
+        targets: [{ src: "node_modules/@fortawesome/fontawesome-free/webfonts/*", dest: "webfonts" }],
+      }),
     ],
     resolve: {
       alias: {
         "~bootstrap": resolve(__dirname, "node_modules/bootstrap"),
-        "~fontawesome": resolve(__dirname, "node_modules/@fortawesome/fontawesome-free")
+        "~fontawesome": resolve(__dirname, "node_modules/@fortawesome/fontawesome-free"),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Avoid warnings related to bootstrap
+          quietDeps: true,
+        },
       },
     },
   };
