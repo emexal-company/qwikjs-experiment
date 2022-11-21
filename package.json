@@ -20,25 +20,25 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/partytown": "^0.7.1",
-    "@builder.io/qwik": "0.12.1",
-    "@builder.io/qwik-city": "0.0.118",
+    "@builder.io/partytown": "^0.7.2",
+    "@builder.io/qwik": "0.13.3",
+    "@builder.io/qwik-city": "0.0.123",
     "@types/eslint": "8.4.10",
     "@types/node": "latest",
-    "@typescript-eslint/eslint-plugin": "5.42.0",
-    "@typescript-eslint/parser": "5.42.0",
-    "eslint": "8.27.0",
-    "eslint-plugin-qwik": "0.12.1",
-    "node-fetch": "3.2.10",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "eslint": "8.28.0",
+    "eslint-plugin-qwik": "0.13.3",
+    "node-fetch": "3.3.0",
     "prettier": "2.7.1",
-    "sass": "^1.56.0",
-    "typescript": "4.8.4",
-    "vite": "3.2.2",
-    "vite-plugin-static-copy": "^0.11.1",
-    "vite-tsconfig-paths": "3.5.2"
+    "sass": "^1.56.1",
+    "typescript": "4.9.3",
+    "vite": "3.2.4",
+    "vite-plugin-static-copy": "^0.12.0",
+    "vite-tsconfig-paths": "3.6.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.0",
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "bootstrap": "^5.2.2",
     "uuid": "^9.0.0"
   }

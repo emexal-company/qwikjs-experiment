@@ -13,28 +13,30 @@ export interface DropdownProps {
   onSelectionChange$: PropFunction<(value: string) => void>;
 }
 
+export const onItemSelected = (store: DropdownStore, ref: Ref, props: DropdownProps) =>
+$(async (value: string) => {
+  store.selected = value;
+  store.open = false;
+
+  // Search for the child, and extract text content to put it inside the label
+  if (!props.label && props.label != '') {
+    const selectedItem = ref.current?.querySelector(`li[data-value="${store.selected}"]`);
+    if (selectedItem) {
+      store.label = document.createTreeWalker(selectedItem, NodeFilter.SHOW_TEXT, null).nextNode()?.nodeValue ?? "";
+    }
+  }
+});
+
+export const onDocumentClick = (store: DropdownStore, ref: Ref) =>
+$(async (e: Event) => {
+  const event = e as MouseEvent;
+  if (!ref.current?.contains(event.target as Node)) {
+    store.open = false;
+  }
+});
+
 export const Dropdown = component$((props: DropdownProps) => {
-  const onItemSelected$ = (store: DropdownStore, ref: Ref, props: DropdownProps) =>
-    $(async (value: string) => {
-      store.selected = value;
-      store.open = false;
 
-      // Search for the child, and extract text content to put it inside the label
-      if (!props.label && props.label != '') {
-        const selectedItem = ref.current?.querySelector(`li[data-value="${store.selected}"]`);
-        if (selectedItem) {
-          store.label = document.createTreeWalker(selectedItem, NodeFilter.SHOW_TEXT, null).nextNode()?.nodeValue ?? "";
-        }
-      }
-    });
-
-  const onDocumentClick$ = (store: DropdownStore, ref: Ref) =>
-    $(async (e: Event) => {
-      const event = e as MouseEvent;
-      if (!ref.current?.contains(event.target as Node)) {
-        store.open = false;
-      }
-    });
 
   useStyles$(styles);
   const itemsRef = useRef();
@@ -46,12 +48,9 @@ export const Dropdown = component$((props: DropdownProps) => {
     popupXOffset: 0,
     popupYOffset: 0
   });
-  store.onItemSelected$ = onItemSelected$(store, itemsRef, props);
+  store.onItemSelected$ = onItemSelected(store, itemsRef, props);
 
   useContextProvider(DropdownContext, store);
-
-  // Events registration
-  useOnDocument("click", onDocumentClick$(store, itemsRef));
 
   useClientEffect$(() => {
     if (store.onItemSelected$) {
@@ -90,7 +89,7 @@ export const Dropdown = component$((props: DropdownProps) => {
   );
 
   const renderWithoutSplitButton = () => (
-    <div class="dropdown" ref={itemsRef}>
+    <div class="dropdown" ref={itemsRef} window:onClick$={(e) => onDocumentClick(store, itemsRef)(e)}>
       <DropdownToggleButton icon={props.icon}
         onClick$={$(() => {
           store.open = !store.open;

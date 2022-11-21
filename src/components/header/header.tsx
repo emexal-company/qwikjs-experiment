@@ -9,7 +9,7 @@ export default component$(() => {
   return (
     <header>
       <SuperHeader></SuperHeader>
-      <section>Menu</section>
+      <section>Put the menu here</section>
     </header>
   );
 });

@@ -1,4 +1,4 @@
-import { component$, PropFunction, useClientEffect$, useRef } from "@builder.io/qwik";
+import { component$, PropFunction } from "@builder.io/qwik";
 import { FontAwesomeIcon } from "../fa-icon/fa-icon";
 
 export interface DropdownSplitButtonProps {
@@ -9,7 +9,8 @@ export interface DropdownSplitButtonProps {
 
 export const DropdownSplitButton = component$((props: DropdownSplitButtonProps) => {
 
-  return (props.icon) ? (
+  return (<>(props.icon) 
+  ? 
     <button
       type="button"
       class={`btn btn-secondary dropdown-toggle-split ${props.open ? "show" : ""}`}
@@ -19,7 +20,7 @@ export const DropdownSplitButton = component$((props: DropdownSplitButtonProps) 
       <span class="visually-hidden">Toggle Dropdown</span>
       <FontAwesomeIcon family="regular" style="solid" icon={props.icon}></FontAwesomeIcon>
     </button>
-  ) : (
+   : 
     <button
       type="button"
       class={`btn btn-secondary dropdown-toggle dropdown-toggle-split ${props.open ? "show" : ""}`}
@@ -28,5 +29,5 @@ export const DropdownSplitButton = component$((props: DropdownSplitButtonProps) 
     >
       <span class="visually-hidden">Toggle Dropdown</span>
     </button>
-  );
+  </>);
 });

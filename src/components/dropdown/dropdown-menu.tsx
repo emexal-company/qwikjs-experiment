@@ -3,7 +3,7 @@ import { DropdownContext, DropdownStore } from "./context";
 import { styleMap } from "./style-map";
 
 interface DropdownMenuStore {
-  styles: Object;
+  styles: any;
 }
 
 export const DropdownMenu = component$(() => {

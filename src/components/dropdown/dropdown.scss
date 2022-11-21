@@ -4,19 +4,21 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
 @import "~bootstrap/scss/utilities";
 
-// Layout & components
+// // Layout & components
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/helpers";
 
 .dropdown {
-    display: inline-block;
+  display: inline-block;
 }

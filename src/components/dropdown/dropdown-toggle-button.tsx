@@ -11,14 +11,18 @@ export interface DropdownToggleButtonProps {
 export const DropdownToggleButton = component$((props: DropdownToggleButtonProps) => {
   const dropdownStore = useContext<DropdownStore>(DropdownContext);
 
-  return props.icon ? (
-    <button type="button" aria-expanded="false" class="btn btn-secondary" onClick$={props.onClick$}>
-      {dropdownStore.label}
-      <FontAwesomeIcon family="regular" style="solid" icon={props.icon}></FontAwesomeIcon>
-    </button>
-  ) : (
-    <button type="button" aria-expanded="false" class={`btn btn-secondary ${props.split ? "" : "dropdown-toggle"}`} onClick$={props.onClick$}>
-      {dropdownStore.label}
-    </button>
+  return (
+    <>
+      {props.icon ? (
+        <button type="button" aria-expanded="false" class="btn btn-secondary" onClick$={props.onClick$}>
+          {dropdownStore.label}
+          <FontAwesomeIcon family="regular" style="solid" icon={props.icon}></FontAwesomeIcon>
+        </button>
+      ) : (
+        <button type="button" aria-expanded="false" class={`btn btn-secondary ${props.split ? "" : "dropdown-toggle"}`} onClick$={props.onClick$}>
+          {dropdownStore.label}
+        </button>
+      )}
+    </>
   );
 });

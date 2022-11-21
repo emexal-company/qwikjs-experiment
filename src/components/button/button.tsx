@@ -13,25 +13,30 @@ interface ButtonProps {
 export const Button = component$((props: ButtonProps) => {
   useStyles$(styles);
 
-  const sizeClass = props.size?.toLowerCase() == "large" ? "btn-lg" : props.size?.toLowerCase() == "small" ? "btn-sm" : "";
-  const variantClass = `btn-${props.outline ? "outline-" : ""}${props.variant.toLowerCase()}`;
-  const disabledClass = (props.disabled) ? "disabled" : "";
+  const size = props.size ? props.size.toLowerCase() : "standard";
+  const variant = props.variant ? props.variant.toLowerCase() : "";
 
-  if (props.href) {
-    return (
-        <a 
-            class={`btn ${variantClass} ${sizeClass} ${disabledClass} ${props.class}`} 
-            href={props.href} role="button" 
-            tabindex={props.disabled ? -1 : undefined} 
-            aria-disabled={props.disabled ? "true" : undefined}
-        ><Slot /></a>
-    );
-  }
-  else {
-    return (
+  const sizeClass = size == "large" ? "btn-lg" : size == "small" ? "btn-sm" : "";
+  const variantClass = `btn-${props.outline ? "outline-" : ""}${variant}`;
+  const disabledClass = props.disabled ? "disabled" : "";
+
+  return (
+    <>
+      {props.href ? (
+        <a
+          class={`btn ${variantClass} ${sizeClass} ${disabledClass} ${props.class}`}
+          href={props.href}
+          role="button"
+          tabindex={props.disabled ? -1 : undefined}
+          aria-disabled={props.disabled ? "true" : undefined}
+        >
+          <Slot />
+        </a>
+      ) : (
         <button class={`btn ${variantClass} ${sizeClass} ${props.class}`} disabled={props.disabled}>
-        <Slot />
+          <Slot />
         </button>
-    );
-  }
+      )}
+    </>
+  );
 });
