@@ -15,9 +15,9 @@ export const TabItem = component$((props: TabItemProps) => {
     <li
       class="nav-item"
       data-value={props.value}
-      onClick$={() => {
+      onClick$={async () => {
         if (tabstore.onItemSelected$) {
-          tabstore.onItemSelected$(props.value);
+          await tabstore.onItemSelected$(props.value);
         }
       }}
     >

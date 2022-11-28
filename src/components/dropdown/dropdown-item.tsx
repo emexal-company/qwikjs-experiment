@@ -12,9 +12,9 @@ export const DropdownItem = component$((props: DropdownItemProps) => {
 
   return (
     <li data-value={props.value}
-      onClick$={() => {
+      onClick$={async () => {
         if(dropdownStore.onItemSelected$) {
-          dropdownStore.onItemSelected$(props.value);
+          await dropdownStore.onItemSelected$(props.value);
         } 
       }}
     >
