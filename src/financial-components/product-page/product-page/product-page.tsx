@@ -10,6 +10,8 @@ import { DocLink } from "~/financial-components/doc-link";
 import { Button } from "~/components/button/button";
 import { Composition } from "./composition";
 import { InfoIndice } from "./info-indice";
+import { ComposantsIndice } from "./composants-indice";
+import { RepartitionPays } from "./repartition-pays";
 
 export const ProductPage = component$(() => {
   return (
@@ -111,6 +113,16 @@ export const ProductPage = component$(() => {
           <section>
             <div>
               <InfoIndice />
+            </div>
+            <div>
+              <div>
+                <ComposantsIndice />
+              </div>
+            </div>
+            <div>
+              <div>
+                <RepartitionPays />
+              </div>
             </div>
           </section>
         </div>
