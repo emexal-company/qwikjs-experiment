@@ -15,6 +15,7 @@ export const TabItem = component$((props: TabItemProps) => {
     <li
       class="nav-item"
       data-value={props.value}
+      preventdefault:click
       onClick$={async () => {
         if (tabstore.onItemSelected$) {
           await tabstore.onItemSelected$(props.value);

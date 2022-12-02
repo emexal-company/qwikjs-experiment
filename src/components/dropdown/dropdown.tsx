@@ -59,6 +59,7 @@ export const Dropdown = component$((props: DropdownProps) => {
       store.open = false;
     }
   });
+  useOnDocument('click', onDocumentClick$);
   // Execute once, in order to add the handler to the context
   useWatch$(() => {
     store.onItemSelected$ = onItemSelected$;
@@ -87,6 +88,8 @@ export const Dropdown = component$((props: DropdownProps) => {
     }
   });
 
+
+
   const renderWithSplitButton = () => (
     <div class="btn-group" ref={itemsRef} data-name="Ressources">
       <DropdownToggleButton split></DropdownToggleButton>
@@ -103,7 +106,7 @@ export const Dropdown = component$((props: DropdownProps) => {
   );
 
   const renderWithoutSplitButton = () => (
-    <div class="dropdown" ref={itemsRef} window:onClick$={onDocumentClick$}>
+    <div class="dropdown" ref={itemsRef}>
       <DropdownToggleButton
         icon={props.icon}
         onClick$={$(() => {

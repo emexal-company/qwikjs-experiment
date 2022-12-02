@@ -14,12 +14,13 @@ import { TabPanel } from "~/components/tabs/tabpanel";
 import { TabPanels } from "~/components/tabs/tabpanels";
 import { Tabs } from "~/components/tabs/tabs";
 import { TextField } from "~/components/textfield/textfield";
+import { ProductPage } from "~/financial-components/product-page/product-page/product-page";
 
 export default component$(() => {
   return (
-    <div>
-      This is the page content
-      <section>
+    <>
+      <ProductPage></ProductPage>
+      {/* <section>
         <Tabs selected="2">
           <TabList>
             <TabItem value="1">Tab1</TabItem>
@@ -30,8 +31,8 @@ export default component$(() => {
             <TabPanel value="2">Tab2 content</TabPanel>
           </TabPanels>
         </Tabs>
-      </section>
-    </div>
+      </section> */}
+    </>
   );
 });
 
