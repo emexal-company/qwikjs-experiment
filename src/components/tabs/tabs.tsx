@@ -21,8 +21,6 @@ export const Tabs = component$((props: TabsProps) => {
     store.onItemSelected$ = onItemSelected$;
   });
 
-
-
   return (
     <>
       <Slot/>

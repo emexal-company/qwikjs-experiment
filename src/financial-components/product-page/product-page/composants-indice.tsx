@@ -2,7 +2,16 @@ import { component$ } from "@builder.io/qwik";
 import { Container } from "~/components/container/container";
 import { Progress } from "~/components/progress/progress";
 import { Row } from "~/components/row/row";
+import { Table } from "~/components/table/table";
+import { TableRow } from "~/components/table/table-row";
 import { Column } from "../../../components/column/column";
+import { TableColumn } from '../../../components/table/table-column';
+
+export const data = [
+  { property: "Technologies de l'information", value: 25.92 },
+  { property: "Santé", value: 15.32 },
+  { property: "Finance", value: 11.78 },
+];
 
 export const ComposantsIndice = component$(() => {
   return (
@@ -12,86 +21,25 @@ export const ComposantsIndice = component$(() => {
           <h3>Répartition des composants de l'indice</h3>
         </Column>
       </Row>
-      <Row>
+      <Row lg="6 6" md="6 6" sm="6 6" xs="12 12">
         <div>
           <Column>
             <div>
               <h4>Répartition par secteur</h4>
               <div>
-                <table>
+                <Table striped hover valign="middle">
                   <tbody>
-                    <tr>
-                      <td>Technologies de l'information</td>
-                      <td>25,92 %</td>
-                      <td style="width: 100px">
-                        <Progress percent={25.92}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Santé</td>
-                      <td>15,32 %</td>
-                      <td>
-                        <Progress percent={15.32} />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Finance</td>
-                      <td>11,78 %</td>
-                      <td>
-                        <Progress percent={11.78}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Biens de consommation cyclique</td>
-                      <td>10,36 %</td>
-                      <td>
-                        <Progress percent={10.36}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Industrie</td>
-                      <td>8,56 %</td>
-                      <td>
-                        <Progress percent={8.56}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Services de communication</td>
-                      <td>7,33 %</td>
-                      <td>
-                        <Progress percent={7.33}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Biens de consommation durable</td>
-                      <td>7,07 %</td>
-                      <td>
-                        <Progress percent={7.07}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Énergie</td>
-                      <td>5,25 %</td>
-                      <td>
-                        <Progress percent={5.25}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Services aux collectivités</td>
-                      <td>3,01 %</td>
-                      <td>
-                        <Progress percent={3.01}/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Autres</td>
-                      <td>5,40 %</td>
-                      <td>
-                        <Progress percent={5.40}/>
-                      </td>
-                    </tr>
+                    {data.map((item) => (
+                      <TableRow>
+                        <TableColumn>{item.property}</TableColumn>
+                        <TableColumn>{item.value} %</TableColumn>
+                        <TableColumn>
+                          <Progress value={item.value} />
+                        </TableColumn>
+                      </TableRow>
+                    ))}
                   </tbody>
-                </table>
+                </Table>
               </div>
             </div>
           </Column>
@@ -105,7 +53,7 @@ export const ComposantsIndice = component$(() => {
                       <td>USD</td>
                       <td>100,00 %</td>
                       <td style="width: 100px">
-                        <Progress percent={10}/>
+                        <Progress value={10} />
                       </td>
                     </tr>
                   </tbody>

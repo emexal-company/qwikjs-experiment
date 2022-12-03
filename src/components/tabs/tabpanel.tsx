@@ -7,7 +7,7 @@ interface TabPanelProps {
 }
 
 export const TabPanel = component$((props: TabPanelProps) => {
-  //useStyles$(styles);
+  useStyles$(styles);
 
   const tabstore = useContext<TabsStore>(TabsContext);
 

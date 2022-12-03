@@ -44,10 +44,7 @@ export const Column = component$(() => {
         .replace(/col-md-eq/g, "col")
         .replace(/col-lg-eq/g, "col")
         .replace(/col-xxl-eq/g, "col")
-        .replace(/col-xl-eq/g, "col");
-      
-        console.log('containerStore', containerStore)
-      console.log('rowStore', rowStore)
+        .replace(/col-xl-eq/g, "col");      
     }
   });
   

@@ -7,7 +7,7 @@ interface TabItemProps {
 }
 
 export const TabItem = component$((props: TabItemProps) => {
-  //useStyles$(styles);
+  useStyles$(styles);
 
   const tabstore = useContext<TabsStore>(TabsContext);
 

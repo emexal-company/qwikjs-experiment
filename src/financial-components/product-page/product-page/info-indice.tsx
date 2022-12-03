@@ -2,44 +2,39 @@ import { component$ } from "@builder.io/qwik";
 import { Column } from "~/components/column/column";
 import { Container } from "~/components/container/container";
 import { Row } from "~/components/row/row";
+import { Table } from "~/components/table/table";
+import { TableColumn } from "~/components/table/table-column";
+import { TableHead } from "~/components/table/table-head";
+import { TableHeadColumn } from "~/components/table/table-head-column";
+import { TableRow } from "~/components/table/table-row";
+import { StyledText } from "~/components/text/styledtext";
+
+export const data = [
+  { property: "Nom complet", value: "S&P 500 Net Total Return Index" },
+  { property: "Code Bloomberg de lindice", value: "SPTR500N" },
+  { property: "Devise de l'indice", value: "USD" },
+  { property: "Nombre de composants de l'indice", value: "503" },
+];
 
 export const InfoIndice = component$(() => {
   return (
     <Container>
-      <Row>
-        <Column>
+      <Row lg="6 6" md="6 6" sm="12 12" xs="12 12">
+        <Column> 
           <h3>Informations sur l'Indice</h3>
           <div>
-            <table>
+            <Table striped hover valign="middle">
               <tbody>
-                <tr>
-                  <td>Nom complet</td>
-                  <td>S&amp;P 500 Net Total Return Index</td>
-                </tr>
-                <tr>
-                  <td> Code Bloomberg de l'indice </td>
-                  <td>SPTR500N</td>
-                </tr>
-                <tr>
-                  <td> Devise de l'indice </td>
-                  <td>USD</td>
-                </tr>
-                <tr>
-                  <td> Nombre de composants de l'indice </td>
-                  <td>503</td>
-                </tr>
-                <tr>
-                  <td> Informations supplémentaires </td>
-                  <td>
-                    <a rel="noreferrer" target="_blank" href="//www.spindices.com">
-                      www.spindices.com
-                    </a>
-                  </td>
-                </tr>
+                {data.map((item) => (
+                  <TableRow>
+                    <TableColumn>{item.property}</TableColumn>
+                    <TableColumn align="end">{item.value}</TableColumn>
+                  </TableRow>
+                ))}
               </tbody>
-            </table>
+            </Table>
           </div>
-          <span>Données au 29/11/2022. Source : Amundi Asset Management</span>
+          <StyledText align="end">Données au 29/11/2022. Source : Amundi Asset Management</StyledText>
         </Column>
         <Column></Column>
       </Row>

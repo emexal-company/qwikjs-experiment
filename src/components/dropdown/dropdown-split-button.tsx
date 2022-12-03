@@ -1,5 +1,6 @@
-import { component$, PropFunction } from "@builder.io/qwik";
+import { component$, PropFunction, useStyles$ } from "@builder.io/qwik";
 import { FontAwesomeIcon } from "../fa-icon/fa-icon";
+import styles from "./dropdown.scss?inline";
 
 export interface DropdownSplitButtonProps {
   open?: boolean;
@@ -8,6 +9,7 @@ export interface DropdownSplitButtonProps {
 }
 
 export const DropdownSplitButton = component$((props: DropdownSplitButtonProps) => {
+  useStyles$(styles);
 
   return (<>(props.icon) 
   ? 
