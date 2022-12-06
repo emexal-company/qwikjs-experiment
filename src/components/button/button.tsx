@@ -1,4 +1,4 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./button.scss?inline";
 
 interface ButtonProps {
@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 export const Button = component$((props: ButtonProps) => {
-  useStyles$(styles);
+  useStylesScoped$(styles);
 
   const size = props.size ? props.size.toLowerCase() : "standard";
   const variant = props.variant ? props.variant.toLowerCase() : "";
