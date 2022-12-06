@@ -30,9 +30,9 @@ export const ProductPage = component$(() => {
             </Column>
             <Column></Column>
           </Row>
-          <Row>
+          <Row lg="7 5 12 12" md="7 5 12 12" sm="12 12 12 12" xs="12 12 12 12">
             <Column>
-              <Row>
+              <Row lg="8 4 8 4 8 4" md="8 4 8 4 8 4" sm="7 5 7 5 7 5" xs="6 6 6 6 6 6">
                 <Column>
                   <PropertyView name="Dernière VL" value="39,94  EUR"></PropertyView>
                 </Column>
@@ -54,14 +54,15 @@ export const ProductPage = component$(() => {
               </Row>
             </Column>
             <Column>
-              <Row>
+              <Row lg="4 4 4" md="4 4 4" sm="4 4 4" xs="12 12 12">
+ 
                 <Column>
                   <DocLink
                     icon="pdf"
-                    label="DICI"
+                    label="Reporting mensuel"
                     href="https://www.amundietf.fr/download/70109ecc-1cbe-4126-8afe-77384ec3e4d4/KID_3_CL94516_FRA_FRA_20220601_20220601.PDF"
                   ></DocLink>
-                </Column>
+                </Column>                
                 <Column>
                   <DocLink
                     icon="pdf"
@@ -69,15 +70,15 @@ export const ProductPage = component$(() => {
                     href="https://www.amundietf.fr/download/70109ecc-1cbe-4126-8afe-77384ec3e4d4/KID_3_CL94516_FRA_FRA_20220601_20220601.PDF"
                   ></DocLink>
                 </Column>
-                <Column>
+                <Column> 
                   <DocLink
                     icon="pdf"
-                    label="Reporting mensuel"
+                    label="DICI"
                     href="https://www.amundietf.fr/download/70109ecc-1cbe-4126-8afe-77384ec3e4d4/KID_3_CL94516_FRA_FRA_20220601_20220601.PDF"
                   ></DocLink>
                 </Column>
               </Row>
-              <Row>
+              <Row lg="12 12" md="12 12" sm="12 12" xs="12 12">
                 <Column>
                   <span>Objectif d'investissement</span>
                 </Column>
@@ -89,20 +90,20 @@ export const ProductPage = component$(() => {
                     flottante. La méthodologie est disponible sur www.indices.standardandpoors.com. Les ETF Lyxor sont des fonds d'investissement cotés en
                     bourse qui procurent une exposition fidèle et bon marché à un indice de référence.
                   </p>
-                  <Button>Lire la suite</Button>
-                </Column>
-                <Column>
-                  <span>Risque de perte en capital.</span>
-                  <span>
-                    Un investissement dans des fonds présente des risques, notamment le risque de perte en capital. La valeur d'un investissement est soumise
-                    aux fluctuations du marché, et peut donc varier tant à la baisse qu’à la hausse. Par conséquent, les souscripteurs des fonds peuvent perdre
-                    tout ou partie de leur capital initialement investi.
-                  </span>
-                </Column>
-                <Column>
-                  <span>Les performances passées ne sont pas garantes et ne préjugent en rien des performances futures.</span>
+                  <Button variant="link">Lire la suite</Button>
                 </Column>
               </Row>
+            </Column>
+            <Column>
+              <span>Risque de perte en capital.</span>
+              <span>
+                Un investissement dans des fonds présente des risques, notamment le risque de perte en capital. La valeur d'un investissement est soumise
+                aux fluctuations du marché, et peut donc varier tant à la baisse qu’à la hausse. Par conséquent, les souscripteurs des fonds peuvent perdre
+                tout ou partie de leur capital initialement investi.
+              </span>
+            </Column>
+            <Column>
+              <span>Les performances passées ne sont pas garantes et ne préjugent en rien des performances futures.</span>
             </Column>
           </Row>
         </Container>

@@ -2,7 +2,7 @@ import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import styles from "./button.scss?inline";
 
 interface ButtonProps {
-  variant: string;
+  variant: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link";
   outline?: boolean;
   size?: string;
   disabled?: boolean;

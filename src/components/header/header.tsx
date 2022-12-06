@@ -1,5 +1,5 @@
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
+import { QwikLogo } from '../svg-icon/qwik';
 import { SuperHeader } from '../superheader/superheader';
 import styles from './header.scss?inline';
 

@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { StyledText } from '../../../components/text/styledtext';
 
 export interface ShareLabelProps {
     mnemo: string,
@@ -7,13 +8,9 @@ export interface ShareLabelProps {
 
 export const ShareLabel = component$((props: ShareLabelProps) => {
   return (
-    <>
-      <div>
-        <span>{props.mnemo}</span>
-      </div>
-      <div>
-        <h1>{props.title}</h1>
-      </div>
-    </>
+    <div class="d-flex">
+      <StyledText valign="middle">{props.mnemo}</StyledText>
+      <StyledText header1>{props.title}</StyledText>
+    </div>
   );
 });
