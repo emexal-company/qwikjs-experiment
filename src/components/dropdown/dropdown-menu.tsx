@@ -1,4 +1,4 @@
-import { component$, Slot, useClientEffect$, useContext, useRef, useStore, useStyles$, useWatch$ } from "@builder.io/qwik";
+import { component$, Slot, useClientEffect$, useContext, useRef, useStore, useStyles$, useWatch$, useStylesScoped$ } from '@builder.io/qwik';
 import { DropdownContext, DropdownStore } from "./context";
 import { styleMap } from "./style-map";
 import styles from "./dropdown.scss?inline";
@@ -8,7 +8,7 @@ interface DropdownMenuStore {
 }
 
 export const DropdownMenu = component$(() => {
-  useStyles$(styles);
+  useStylesScoped$(styles);
   const dropdownStore = useContext<DropdownStore>(DropdownContext);
   const store = useStore<DropdownMenuStore>({
     styles: {}

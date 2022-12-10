@@ -9,11 +9,12 @@ import { TabList } from "~/components/tabs/tablist";
 import { TabPanel } from "~/components/tabs/tabpanel";
 import { TabPanels } from "~/components/tabs/tabpanels";
 import { Tabs } from "~/components/tabs/tabs";
-import { TableRow } from '../../../components/table/table-row';
-import { TableHeadRow } from '../../../components/table/table-head-row';
-import { TableHeadColumn } from '../../../components/table/table-head-column';
+import { TableRow } from "../../../components/table/table-row";
+import { TableHeadRow } from "../../../components/table/table-head-row";
+import { TableHeadColumn } from "../../../components/table/table-head-column";
 import { TableColumn } from "~/components/table/table-column";
 import { StyledText } from "~/components/text/styledtext";
+import { WorldMap } from "./map";
 
 const compositonTableData1 = [
   { name: "APPLE INC", currency: "USD", value: 6.41, category: "Technologies de l'information" },
@@ -29,7 +30,7 @@ const compositonTableData2 = [
 
 export const CompositionTable1 = () => {
   return (
-    <Table striped hover valign='middle'>
+    <Table striped hover valign="middle">
       <TableHead>
         <TableRow active>
           <TableHeadColumn>Nom</TableHeadColumn>
@@ -39,8 +40,8 @@ export const CompositionTable1 = () => {
         </TableRow>
       </TableHead>
       <tbody>
-        {compositonTableData1.map((item) => (
-          <TableRow>
+        {compositonTableData1.map((item, index) => (
+          <TableRow key={index}>
             <TableColumn>{item.name}</TableColumn>
             <TableColumn>{item.currency}</TableColumn>
             <TableColumn>{`${item.value} %`}</TableColumn>
@@ -54,7 +55,7 @@ export const CompositionTable1 = () => {
 
 export const CompositionTable2 = () => {
   return (
-    <Table striped hover valign='middle'>
+    <Table striped hover valign="middle">
       <TableHead>
         <TableRow active>
           <TableHeadColumn>Nom</TableHeadColumn>
@@ -64,8 +65,8 @@ export const CompositionTable2 = () => {
         </TableRow>
       </TableHead>
       <tbody>
-        {compositonTableData2.map((item) => (
-          <TableRow>
+        {compositonTableData2.map((item, index) => (
+          <TableRow key={index}>
             <TableColumn>{item.name}</TableColumn>
             <TableColumn>{item.currency}</TableColumn>
             <TableColumn>{`${item.value} %`}</TableColumn>
@@ -73,7 +74,7 @@ export const CompositionTable2 = () => {
           </TableRow>
         ))}
       </tbody>
-    </Table>    
+    </Table>
   );
 };
 
@@ -115,6 +116,11 @@ export const Composition = component$(() => {
               </TabPanel>
             </TabPanels>
           </Tabs>
+        </Column>
+      </Row>
+      <Row sm="12">
+        <Column>
+          <WorldMap data={[{ iso: "USA", weight: 1 }]} />
         </Column>
       </Row>
     </Container>

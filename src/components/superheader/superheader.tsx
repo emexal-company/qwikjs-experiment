@@ -23,8 +23,8 @@ interface SuperHeaderMenuProps {
 export const SuperHeaderMenu = component$((props: SuperHeaderMenuProps) => {
   return (
     <Dropdown selected={props.items[0].url} label={props.hubIcon ? '' : props.title} icon={props.hubIcon ? 'th' : undefined}>
-      {props.items.map((item) => (
-        <DropdownItem value={item.url} /*href={item.url}*/>{item.label}</DropdownItem>
+      {props.items.map((item, index) => (
+        <DropdownItem key={index} value={item.url} /*href={item.url}*/>{item.label}</DropdownItem>
       ))}
     </Dropdown>
   );

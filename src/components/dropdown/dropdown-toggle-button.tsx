@@ -1,4 +1,4 @@
-import { component$, PropFunction, useClientEffect$, useContext, useRef, useStyles$ } from "@builder.io/qwik";
+import { component$, PropFunction, useClientEffect$, useContext, useRef, useStyles$, useStylesScoped$ } from '@builder.io/qwik';
 import { FontAwesomeIcon } from "../fa-icon/fa-icon";
 import { DropdownContext, DropdownStore } from "./context";
 import styles from "./dropdown.scss?inline";
@@ -10,7 +10,7 @@ export interface DropdownToggleButtonProps {
 }
 
 export const DropdownToggleButton = component$((props: DropdownToggleButtonProps) => {
-  useStyles$(styles);
+  useStylesScoped$(styles);
   const dropdownStore = useContext<DropdownStore>(DropdownContext);
 
   return (

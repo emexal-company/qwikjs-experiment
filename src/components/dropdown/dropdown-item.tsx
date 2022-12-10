@@ -1,4 +1,4 @@
-import { component$, Ref, Slot, useContext, useRef, $, useMount$, useStore, useStyles$ } from "@builder.io/qwik";
+import { component$, Ref, Slot, useContext, useRef, $, useMount$, useStore, useStyles$, useStylesScoped$ } from '@builder.io/qwik';
 import { DropdownContext, DropdownStore } from "./context";
 import styles from "./dropdown.scss?inline";
 
@@ -8,7 +8,7 @@ interface DropdownItemProps {
 }
 
 export const DropdownItem = component$((props: DropdownItemProps) => {
-  useStyles$(styles);
+  useStylesScoped$(styles);
   const dropdownStore = useContext<DropdownStore>(DropdownContext);
   const isActive = dropdownStore.selected == `${props.value}`;
 

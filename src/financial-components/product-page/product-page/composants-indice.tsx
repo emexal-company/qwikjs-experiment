@@ -29,8 +29,8 @@ export const ComposantsIndice = component$(() => {
               <div>
                 <Table striped hover valign="middle">
                   <tbody>
-                    {data.map((item) => (
-                      <TableRow>
+                    {data.map((item, index) => (
+                      <TableRow key={index}>
                         <TableColumn>{item.property}</TableColumn>
                         <TableColumn>{item.value} %</TableColumn>
                         <TableColumn>

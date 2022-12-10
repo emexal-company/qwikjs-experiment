@@ -1,12 +1,6 @@
 // scss-docs-start import-stack
 // Configuration
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/utilities";
-
-// Layout & components
-@import "~bootstrap/scss/buttons";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap-grid.css";
+@import "~bootstrap/dist/css/bootstrap-utilities.css";
 

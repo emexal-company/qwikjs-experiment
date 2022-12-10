@@ -25,8 +25,8 @@ export const InfoIndice = component$(() => {
           <div>
             <Table striped hover valign="middle">
               <tbody>
-                {data.map((item) => (
-                  <TableRow>
+                {data.map((item, index) => (
+                  <TableRow key={index}>
                     <TableColumn>{item.property}</TableColumn>
                     <TableColumn align="end">{item.value}</TableColumn>
                   </TableRow>

@@ -17,6 +17,7 @@ import { DropdownContext, DropdownStore } from "./context";
 import { DropdownToggleButton } from "./dropdown-toggle-button";
 import { DropdownSplitButton } from "./dropdown-split-button";
 import { DropdownMenu } from "./dropdown-menu";
+import { useStylesScoped$ } from '@builder.io/qwik';
 
 export interface DropdownProps {
   selected: string;
@@ -27,7 +28,7 @@ export interface DropdownProps {
 }
 
 export const Dropdown = component$((props: DropdownProps) => {
-  useStyles$(styles);
+  useStylesScoped$(styles);
   const itemsRef = useRef();
   // Store definition
   const store = useStore<DropdownStore>({
